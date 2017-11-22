@@ -1,0 +1,22 @@
+{
+  "name": "sp_tmpl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass --output-style compressed resources/assets/sass/style.scss public/css/style.css",
+    "sass-w": "node-sass -w --output-style compressed resources/assets/sass/style.scss public/css/style.css",
+    "webpack": "webpack --progress --colors --optimize-minimize",
+    "webpack-w": "webpack --watch --progress --colors --optimize-minimize",
+    "start": "npm run sass-w & npm run webpack-w & php -S localhost:8000 -t public"
+  },
+  "author": "kataoka@sandalot.com",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.2",
+    "webpack": "^3.8.1"
+  }
+}
