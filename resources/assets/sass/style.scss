@@ -1,11 +1,158 @@
-$keycolor: #f00;
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+@include foundation-global-styles;
+// @include foundation-grid;
+// @include foundation-flex-grid;
+//
+@include foundation-xy-grid-classes;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+// @include foundation-float-classes;
+@include foundation-flex-classes;
+
+// @include foundation-prototype-classes;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+
+
+
+
+
+
+
+$sticky-shrinknav-menu-height: rem-calc(60);
+$sticky-shrinknav-hero-height: 300px;
+
 
 body {
-  margin: 0;
-  padding: 0;
+  padding-top: $sticky-shrinknav-hero-height + 30px;
 }
 
-#app {
+.sticky-shrinknav-menu {
+  @include horizontal-center;
+  bottom: 0;
+  height: $sticky-shrinknav-menu-height;
+  line-height: $sticky-shrinknav-menu-height;
   width: 100%;
-  color: $keycolor;
+  background-color: rgba($primary-color, 0.1);
+  transition: all 0.5s ease;
+
+  li {
+    border-radius: 2px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 0 1px $white;
+    }
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.sticky-shrinknav-header-title {
+  transition: all 0.3s ease;
+  position: relative;
+  transform: translateY(-$sticky-shrinknav-menu-height/2);
+  margin-bottom: 0;
+  color: $white;
+}
+
+.sticky-shrinknav-header {
+  width: 100%;
+  height: $sticky-shrinknav-hero-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lighten($primary-color, 10%);
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  z-index: 999;
+}
+
+body.sticky-shrinknav-wrapper {
+  padding-top: 130px;
+
+  .sticky-shrinknav-header{
+    height: $sticky-shrinknav-menu-height;
+    background-color: rgba($primary-color, 0.9);
+
+    .sticky-shrinknav-header-title{
+      transform: scale(0);
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+
+.footer-nav {
+  max-width: 75rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #2c3840;
+  padding: 2rem;
+  width: 100%;
+  font-family: 'Proxima Nova', 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  .footer-copyright {
+      color: #cbcbcb;
+      font-size: 1rem;
+      padding-top: 3rem;
+
+      a {
+        color: #cbcbcb;
+      }
+  }
 }
