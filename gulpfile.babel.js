@@ -41,7 +41,7 @@ function clean(done) {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function sass() {
-  return gulp.src('resources/assets/sass/style.scss')
+  return gulp.src('resources/sass/style.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
@@ -86,7 +86,7 @@ function javascript() {
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
-  return gulp.src('resources/assets/img/**/*')
+  return gulp.src('resources/img/**/*')
     .pipe($.if(PRODUCTION, $.imagemin({
       progressive: true
     })))
@@ -95,7 +95,7 @@ function images() {
 
 // Watch for changes to static assets, Sass, and JavaScript
 function watch() {
-  gulp.watch('resources/assets/sass/**/*.scss').on('all', sass);
-  gulp.watch('resources/assets/js/**/*.js').on('all', javascript);
-  gulp.watch('resources/assets/img/**/*').on('all', images);
+  gulp.watch('resources/sass/**/*.scss').on('all', sass);
+  gulp.watch('resources/js/**/*.js').on('all', javascript);
+  gulp.watch('resources/img/**/*').on('all', images);
 }
